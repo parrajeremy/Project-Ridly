@@ -101,10 +101,12 @@ def load_board():
         global s1,s2
         s1 = str(sen1)
         s2 = str(sen2)
-
-        print "SENSOR 1 is : "
+        #ts is the time stamp in seconds for each sensor value.
+        ts = time.time()
+        print ts
+        print "\n\n SENSOR 1 is : "
         print s1
-        print "SENSOR 2 is :"
+        print "\n\n SENSOR 2 is :"
         print s2
         call_pca(addr)
         sensor1()
