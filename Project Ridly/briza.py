@@ -109,7 +109,7 @@ b4 = board_addr[3]
 print b2
 #initializing the board with all the sensors
 board_init(b1)
-#board_init(b2)
+board_init(b2)
 board_init(board_addr[2])
 board_init(board_addr[3])
 
@@ -131,4 +131,4 @@ while 1==1:
     t.sleep(0.1)
     load_board()
 
-    logfile.close()
+logfile.close()
