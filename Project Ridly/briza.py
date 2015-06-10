@@ -106,8 +106,11 @@ def sensor2_conf():
 
 
 def board_init(boardAddr):
+    global s1,s2
     addr = boardAddr
     reading_eeprom(addr)
+    s1 = str(sen1)
+    s2 = str(sen2)
     call_pca(addr)
     sensor1()
     sensor2()
