@@ -9,8 +9,9 @@ hdc.address(0x40)
 def readHDC_humidity():
     hdc.writeByte(0x01)
     time.sleep(0.008)
-    val1 = hdc.readByte()
-    val2 = hdc.readByte()
+    val1,val2 = hdc.read(2)
+    #val1 = hdc.readByte()
+    #val2 = hdc.readByte()
     humidity = (val2 | (val1 << 8))
     h = humidity / math.pow(2,16)*100
     print "HUMIDITY = %f" %(humidity / math.pow(2,16) * 100)
@@ -22,8 +23,9 @@ def readHDC_humidity():
 def readHDC_temp():
     hdc.writeByte(0x00)
     time.sleep(0.02)
-    val1 = hdc.readByte()
-    val2 = hdc.readByte()
+    val1,val2 = hdc.read(2)
+    #val1 = hdc.readByte()
+    #val2 = hdc.readByte()
     val1 = val1 & 0xFC
     temperature = (val2 | (val1 << 8))
     t = (temperature / math.pow(2,16))*165 - 40

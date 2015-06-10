@@ -8,11 +8,11 @@ import ads1220 as ads
 
 def init(sensor):
     if sensor == 'TOR':
-        print"TOX"
-	Tox()
+        print"TOR"
+	Tor()
     elif sensor == 'TOX':
-	print"TOR"
-        Tor()
+	print"TOX"
+        Tox()
     elif sensor == 'NO2':
         print"NO2"
 	NO2()

@@ -60,6 +60,7 @@ def spi_init():
 #    printADS()
 
 def readADS_Data():
+    global readData1
     spi.writeByte(0x40)
     spi.writeByte(ads_config0)
     time.sleep(0.1)
