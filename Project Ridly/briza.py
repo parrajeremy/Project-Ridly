@@ -16,7 +16,7 @@ sen1 = '1'
 sen2 = '2'
 s1 = ''
 s2 = ''
-logfile = open('sensor_data','w')
+logfile = open('sensor_data.txt','w')
 
 #board addresses initialize
 board_addr = [b_eeprom.board1, b_eeprom.board2, b_eeprom.board3, b_eeprom.board4]
@@ -75,7 +75,14 @@ def sensor1():
 
 def sensor1_conf():
     pca.pca_config(1,0,0)
+    
     dc.s1_avg_data()
+    rawData = ads.get_readData()
+#    print"rawData sensor1 = %ld" %rawData
+    logfile.write("\n\tSensor1  = ")
+    logfile.write(str(rawData))
+
+
 #    s1_avg = dc.get_s1Avg()
 
 def sensor2():
@@ -89,6 +96,12 @@ def sensor2():
 def sensor2_conf():
     pca.pca_config(0,1,0)
     dc.s2_avg_data()
+    rawData = ads.get_readData()
+#    print "rawData sensor 2 = %ld" %rawData
+    logfile.write("\n\tSensor2  = ")
+    logfile.write(str(rawData))
+
+
 #    s2_avg = dc.get_s2Avg()
 
 
@@ -109,7 +122,7 @@ b4 = board_addr[3]
 print b2
 #initializing the board with all the sensors
 board_init(b1)
-board_init(b2)
+#board_init(b2)
 board_init(board_addr[2])
 board_init(board_addr[3])
 
@@ -117,13 +130,18 @@ def load_board():
     for i in range (0,4):
         addr = board_addr[i]
         t.sleep(1)
-        print("\n Board %s", board_addr[i])
-	ts = t.time()
-        print ts
+        print "\n Board %ld  %ld" %(i, board_addr[i])
+        logfile.write("\n Board  ")
+        logfile.write(str(board_addr[i]))
+        ts = t.time()
+        print "\n time %ld" %ts
+        logfile.write("\nTimestamp  = ")
+        logfile.write(str(ts))
+
         print("\n SENSOR 1 ")
-	sensor1_conf()
+        sensor1_conf()
         t.sleep(1)
-	print("\n SENSOR 2 ")
+        print("\n SENSOR 2 ")
         sensor2_conf()
 
 while 1==1:
