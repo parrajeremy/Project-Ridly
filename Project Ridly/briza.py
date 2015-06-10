@@ -16,8 +16,7 @@ board_addr = [b_eeprom.board1, b_eeprom.board2, b_eeprom.board3, b_eeprom.board4
 
 
 board.board_init(board_addr[0])
-
-#board.board_init(board_addr[1])
+board.board_init(board_addr[1])
 board.board_init(board_addr[2])
 board.board_init(board_addr[3])
 
