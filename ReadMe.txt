@@ -23,10 +23,12 @@ To configure the edison for Tox and Tor sensor:
 To Run the Briza for all 4 modules:
 
 	1. Run the briza_eeprom.py to flash the eeprom with details.
-		>> python briza_eeprom.py
+		>> python briza_eeprom.py 0x53 0x55 0x56 0x57
 	2. Run the briza.py to see the values from all sensors.
-		>> python briza.py
+		>> python briza.py 0x53 0x55 0x56 0x57
 
 NOTE: In briza.py : function other_sensor() is diasbled for now to test the Gas sensors.
       if wanted to check see the avlues of LPH, HDC sensor enable the other_sensor() in while loop.
+      0x53, 0x55,0x56, 0x57 are the default board addresses. please specify the correct board address and in sequence of
+      board1, board2 board3, board4
 
