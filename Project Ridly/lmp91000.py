@@ -79,7 +79,7 @@ def lmp_init():
     			lmp.writeReg(LMP_REFCN, REF_VOLTAGE | INT_Z_SEL | BIAS | BIAS_SIGN)
     			lmp.writeReg(LMP_MODECN,FET_SHORT_DISABLED | OP_MODE)
     			#to debug use print func
-   			#printLMP()
+#   			printLMP()
     	lmp.writeReg(LMP_LOCK, LMP_LOCK)
     	lock = lmp.readReg(LMP_LOCK)
     	if lock == 1:

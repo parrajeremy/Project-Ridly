@@ -1,42 +1,7 @@
 
-Humidity  = 38.4582519531
-Temperature  = 27.6052856445
-Pressure  = 1013
- Board  83
-Timestamp  = 1431507958.48
-	Sensor1  = 8388640
-	Sensor2  = 8389634
- Board  85
-Timestamp  = 1431507962.97
-	Sensor1  = 8388624
-	Sensor2  = 8389664
- Board  86
-Timestamp  = 1431507967.45
-	Sensor1  = 8388930
-	Sensor2  = 8389888
- Board  87
-Timestamp  = 1431507971.93
-	Sensor1  = 8389160
-	Sensor2  = 8389129
-Humidity  = 38.4582519531
-Temperature  = 27.6254272461
-Pressure  = 1013
- Board  83
-Timestamp  = 1431507977.55
-	Sensor1  = 8389188
-	Sensor2  = 8388770
- Board  85
-Timestamp  = 1431507982.03
-	Sensor1  = 8389156
-	Sensor2  = 8389248
- Board  86
-Timestamp  = 1431507986.51
-	Sensor1  = 8388630
-	Sensor2  = 8388624
- Board  87
-Timestamp  = 1431507990.99
-	Sensor1  = 8389636
-	Sensor2  = 8388800
-Humidity  = 38.4582519531
-Temperature  = 27.6052856445
-Pressure  = 1013
+ Board  
+Timestamp  = 1434064960.45
+	Sensor1  = 0
+	Sensor2  = 0
+ Board  
+Timestamp  = 1434064964.13

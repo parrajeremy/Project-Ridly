@@ -72,8 +72,17 @@ def s1_avg_data():
 		temp1 = temp1 + s1_avg3_sample[j]
 	temp1 = temp1 / len(s1_avg3_sample)
 	s1_avgData[2] = temp1
+
+#	nA1 = Raw_data1 * 2.048 / 8388607 / 348000 * 1000000000
+	nA1 = Raw_data1 / 1425.40783
+
+#	mV1 = Raw_data1 * 2.048 / 8388607
+	mV1 = Raw_data1 / 4095.9995117
 	
-	print "Raw Data = %ld  average Data = %ld, %f V." % (Raw_data1, s1_avgData[2], (4.096 / (math.pow(2,24))*ads.int32(s1_avgData[2])))
+#	print "Raw Data = %ld  mV = %f nA = %f average Data = %ld, %f V." % (Raw_data1, mV1, nA1, s1_avgData[2], (2.048 / 8388607*ads.int32(s1_avgData[2])))
+	print "Raw Data = %ld  mV = %f nA = %f " % (Raw_data1, mV1, nA1),
+#	print "nA = %f" % (nA1),
+#	print "Raw Data = %ld" % (Raw_data1),
 
 def get_s1Avg():
 	return s1_avgData[2]
@@ -119,7 +128,12 @@ def s2_avg_data():
 	temp = temp / len(s2_avg3_sample)
 	s2_avgData[2] = temp
 	
-	print "Raw Data = %ld  average Data = %ld, %f V." % (Raw_data, s2_avgData[2], (4.096 / (math.pow(2,24))*ads.int32(s2_avgData[2])))
+	nA2 = Raw_data / 1425.40783
+	mV2 = Raw_data / 4095.9995117
 
+#	print "Raw Data = %ld" % (Raw_data),
+	print "Raw Data = %ld  mV = %f nA = %f " % (Raw_data, mV2, nA2),
+#	print "nA = %f" % (nA2),
+#	print "Raw Data = %ld  average Data = %ld, %f V." % (Raw_data, s2_avgData[2], (2.048 / 8388607*ads.int32(s2_avgData[2])))
 def get_s2Avg():
 	return s2_avgData[2]

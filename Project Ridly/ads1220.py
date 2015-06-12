@@ -43,43 +43,54 @@ def get_ads_config3(config3):
 
    
 def spi_init():
-   # data = spi.writeByte(ADS_RESET)
-   # data = spi.writeByte(ADS_RREG)
+#    data = spi.writeByte(ADS_RESET)
+#    data = spi.writeByte(ADS_RREG)
+#    time.sleep(1)
     spi.writeByte(0x43)
-    #spi.writeByte(ADS_WREG | (ADS_CONFIG_REG0 << 2))
+#    spi.writeByte((ADS_WREG) | (ADS_CONFIG_REG0 << 2))
+#    spi.writeByte(0x50)
     spi.writeByte(ads_config0)
+#    spi.writeByte(0x41)
+#    spi.writeByte((ADS_WREG) | (ADS_CONFIG_REG1 << 2))
     spi.writeByte(0x00)
+#    spi.writeByte(ads_config1)
+#    spi.writeByte(0x42)
+#    spi.writeByte((ADS_WREG) | (ADS_CONFIG_REG2 << 2))
     spi.writeByte(0x50)
+#    spi.writeByte(ads_config2)
+#    spi.writeByte(0x43)
+#    spi.writeByte((ADS_WREG) | (ADS_CONFIG_REG3 << 3))
     spi.writeByte(0x00)
-    #spi.writeByte(ADS_WREG |(ADS_CONFIG_REG1 << 2))
-    #spi.writeByte(ads_config1)
-    #spi.writeByte(ADS_WREG |(ADS_CONFIG_REG2 << 2))
-    #spi.writeByte(ads_config2)
-    #spi.writeByte(ADS_WREG |(ADS_CONFIG_REG3 << 3))
-    #spi.writeByte(ads_config3)
+#    spi.writeByte(ads_config3)
+#    time.sleep(1)
 #    printADS()
 
 def readADS_Data():
-    global readData1
+
+
     spi.writeByte(0x40)
     spi.writeByte(ads_config0)
     time.sleep(0.1)
 
     spi.writeByte(0x08)
     time.sleep(0.1)
-
     
-  #  data = spi.writeByte(ADS_RREG | (ADS_RDATA << 2))
+#    data = spi.writeByte(ADS_RREG | (ADS_RDATA << 2))
+#    time.sleep(1)
     data1 = spi.writeByte(ADS_DUMMY)
     data2 = spi.writeByte(ADS_DUMMY)
     data3 = spi.writeByte(ADS_DUMMY)
+#    data4 = spi.writeByte(ADS_DUMMY)
     readData = ((data1 << 16) | (data2 << 8) | (data3 >> 0))
+#    readData = readData & 0b111111111111111111111111
     readData1 = readData
 #    print printADS()
     if(readData >> 23):
         readData = -(16777215 - readData)
-   # print("DATA AVAILABLE FROM THE SENSOR")
-  #  print (4.096 / (math.pow(2,24))*int32(readData))
+    
+#    print("DATA AVAILABLE FROM THE SENSOR")
+#    print(readData)
+#    print (4.096 / (math.pow(2,24))*int32(readData))
     return readData
 
 def get_readData():
